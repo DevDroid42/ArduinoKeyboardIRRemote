@@ -8,7 +8,7 @@ unsigned long lastPressedTime = 0;
 bool remoteEnabled;
 
 void setup() {
-  Serial.begin(9600);
+  //Serial.begin(9600);
   IrReceiver.begin(IR_RECEIVE_PIN);
   Keyboard.begin();
 }
@@ -17,7 +17,7 @@ void loop() {
   if (IrReceiver.decode()) {
     int command = IrReceiver.decodedIRData.command;
     //Serial.println(command);
-    Serial.println(lastPressedTime);
+    //Serial.println(lastPressedTime);
 
     if (command == 85) {
       if (remoteEnabled) {

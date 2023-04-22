@@ -5,7 +5,7 @@
 #define ACTIVE_DURATION 120000
 
 unsigned long lastPressedTime = 0;
-bool remoteEnabled;
+bool remoteEnabled = true;
 
 void setup() {
   //Serial.begin(9600);
@@ -31,7 +31,6 @@ void loop() {
     }
 
     delay(60);
-    Keyboard.releaseAll();
     IrReceiver.resume();
   }
 }
@@ -57,25 +56,29 @@ void disableRemote() {
 void pressKeys(int command) {
   enableRemote();
   switch (command) {
-    case 130:
+    case 69:
       Keyboard.press(KEY_UP_ARROW);
       break;
-    case 131:
+    case 70:
       Keyboard.press(KEY_DOWN_ARROW);
       break;
-    case 132:
+    case 71:
       Keyboard.press(KEY_LEFT_ARROW);
       break;
-    case 133:
+    case 72:
       Keyboard.press(KEY_RIGHT_ARROW);
       break;
-    case 151:
+    case 68:
       Keyboard.press(KEY_RETURN);
       break;
-    case 84:
+    case 73:
+      Keyboard.press(KEY_ESC);
+      break;
+    case 74:
       Keyboard.press(KEY_BACKSPACE);
       break;
     default:
       break;
   }
+  Keyboard.releaseAll();
 }

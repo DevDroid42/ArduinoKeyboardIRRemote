@@ -40,7 +40,7 @@ void updateRemoteEnableStatus() {
   if (millis() > (LONG_MAX - 200)) {
     lastPressedTime = 0;
   }
-  remoteEnabled = millis() - lastPressedTime < ACTIVE_DURATION;
+  //remoteEnabled = millis() - lastPressedTime < ACTIVE_DURATION;
 }
 
 void enableRemote() {
